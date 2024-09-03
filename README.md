@@ -15,7 +15,7 @@ This project is a simple Flask web application that allows users to input natura
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/sergioantelo/ai_advanced_filtering.git
-   cd data-query-webapp
+   cd ai_advanced_filtering
 
 2. **Activate the preloaded virtual environment**:
    ```bash
