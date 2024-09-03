@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Query App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="search-box">
+            <form method="POST" onsubmit="showLoading()">
+                <div class="input-container">
+                    <input type="text" name="query" placeholder="Type your query..." autofocus required>
+                    <button type="submit" class="search-button">
+                        <img src="{{ url_for('static', filename='magnifier.png') }}" alt="Search">
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div id="loading" class="loading" style="display: none;">
+            <p>Loading answer<span id="dots">...</span></p>
+        </div>
+        <div class="response-box">
+            <p>{{ response }}</p>
+        </div>
+    </div>
+    <script>
+        var dots = window.setInterval(function() {
+            var wait = document.getElementById("dots");
+            if (wait.innerHTML.length > 5) 
+                wait.innerHTML = ".";
+            else 
+                wait.innerHTML += ".";
+        }, 500);
+    </script>
+</body>
+</html>
